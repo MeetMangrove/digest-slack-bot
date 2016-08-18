@@ -3,5 +3,6 @@
   "description": "A barebones Node.js app using Express 4",
   "repository": "https://github.com/meetmangrove/digest-slack-bot",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
-  "keywords": ["slack"]
+  "keywords": ["slack"],
+  "addons": ["mongolab:sandbox"]
 }
