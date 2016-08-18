@@ -4,5 +4,8 @@
   "repository": "https://github.com/meetmangrove/digest-slack-bot",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["slack"],
-  "addons": ["mongolab:sandbox"]
+  "addons": ["mongolab:sandbox"],
+  "scripts": {
+    "postdeploy": "node deploy-test.js"
+  }
 }
