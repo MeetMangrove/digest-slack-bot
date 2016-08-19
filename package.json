@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/MeetMangrove/digest-slack-bot/issues"
   },
-  "homepage": "https://github.com/MeetMangrove/digest-slack-bot#readme"
+  "homepage": "https://github.com/MeetMangrove/digest-slack-bot#readme",
+  "dependencies": {
+    "mongoose": "^4.5.9",
+    "slackbots": "^0.5.2"
+  }
 }

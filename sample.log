@@ -1,0 +1,35 @@
+{ type: 'message',
+  channel: 'C21RLFFBJ',
+  user: 'U1S5NJ526',
+  text: 'a',
+  ts: '1471618055.000010',
+  team: 'T1Q92LCHG' }
+
+{ type: 'message',
+  message: 
+   { type: 'message',
+     user: 'U1S5NJ526',
+     text: 'i think the id is gonna be the same',
+     edited: { user: 'U1S5NJ526', ts: '1471618097.000000' },
+     ts: '1471618055.000010' },
+  subtype: 'message_changed',
+  hidden: true,
+  channel: 'C21RLFFBJ',
+  previous_message: 
+   { type: 'message',
+     user: 'U1S5NJ526',
+     text: 'a',
+     ts: '1471618055.000010' },
+  event_ts: '1471618097.616805',
+  ts: '1471618097.000011' }
+
+{ type: 'reaction_added',
+  user: 'U1S5NJ526',
+  item: 
+   { type: 'message',
+     channel: 'C21RLFFBJ',
+     ts: '1471618055.000010' },
+  reaction: 'balloon',
+  item_user: 'U1S5NJ526',
+  event_ts: '1471618236.618478' }
+  
