@@ -3,9 +3,14 @@
   "description": "A barebones Node.js app using Express 4",
   "repository": "https://github.com/meetmangrove/digest-slack-bot",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
-  "keywords": ["slack"],
-  "addons": ["mongolab:sandbox"],
+  "keywords": [
+    "slack"
+  ],
+  "addons": [
+    "scheduler:standard",
+    "mongolab:sandbox"
+  ],
   "scripts": {
-    "postdeploy": "node deploy-test.js"
+    "start": "node index.js"
   }
 }
