@@ -4,6 +4,8 @@ var request = require('request');
 
 var LIMIT = 20;
 
+setTimeout(() => process.exit(), 10000); // the process quits after 10 seconds
+
 function fetchMessageContent(msgs, callback) {
   var url = 'https://slack.com/api/channels.list?token=' + config.SLACK_TOKEN;
   //console.log(url);
