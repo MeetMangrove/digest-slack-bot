@@ -1,10 +1,9 @@
-var SlackBot = require('slackbots');
 var config = require('./config')
 var model = require('./model');
 
 config.bot.on('start', function() {
   console.log('bot started.');
-  // define channel, where bot exist. You can adjust it there https://my.slack.com/services 
+  // define channel, where bot exist. You can adjust it there https://my.slack.com/services
   //bot.postMessageToChannel('general', 'meow!', { icon_emoji: ':cat:' });
 });
 
@@ -16,7 +15,7 @@ config.bot.on('message', function(data) {
     reaction_added: -1,
   };
   console.log('message:', JSON.stringify(data));
-  if (data.reaction !== REACTION_NAME) return;
+  if (data.reaction !== config.REACTION_NAME) return;
   if (data.item.type !== 'message') {
     console.warn('type !== message'); // TODO
     return;
@@ -34,4 +33,3 @@ config.bot.on('message', function(data) {
 // slack handle: private message to bot from admin
 
 // slack handle: bot invited into a channel
-

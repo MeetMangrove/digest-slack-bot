@@ -1,12 +1,16 @@
+var SlackBot = require('slackbots');
+
 exports = {
   REACTION_NAME: 'gem',
-  SLACK_TOKEN: 'xoxb-71052224580-KLL51K43SS8rEeTIYARYk0PM',
+  SLACK_NAME: 'nomedu',
+  SLACK_TOKEN: process.env.SLACK_TOKEN,
+  DIGEST_CHANNEL: process.env.DIGEST_CHANNEL || 'balloon-bot',
   BOT_NAME: 'Gem Bot',
   ADMIN_USERNAME: 'adrienj'
 };
 
 // create a bot
 exports.bot = new SlackBot({
-    token: SLACK_TOKEN, // TODO: Add a bot https://my.slack.com/services/new/bot and put the token 
-    name: BOT_NAME
+    token: exports.SLACK_TOKEN, // TODO: Add a bot https://my.slack.com/services/new/bot and put the token
+    name: exports.BOT_NAME
 });
