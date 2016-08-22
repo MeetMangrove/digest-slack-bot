@@ -12,7 +12,7 @@ config.bot.on('start', function() {
 config.bot.on('message', function(data) {
   var votes = {
     reaction_added: 1,
-    reaction_added: -1,
+    reaction_removed: -1,
   };
   console.log('message:', JSON.stringify(data));
   if (data.reaction !== config.REACTION_NAME) return;
@@ -23,9 +23,12 @@ config.bot.on('message', function(data) {
   var query = { type: data.item.type, id: data.item.ts };
   var incr = votes[data.type];
   if (incr) {
-    var update = { $inc: { votes: incr } };
-    Message.findOneAndUpdate(query, update, { upsert: true }, function(err, doc){
-      console.log('=> ', err || doc);
+    var update = {
+      $inc: { votes: incr },
+      channel: data.item.channel
+    };
+    model.Message.findOneAndUpdate(query, update, { upsert: true, new: true }, function(err, doc){
+      console.log('findOneAndUpdate=> ', err || doc);
     });
   }
 });

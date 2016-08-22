@@ -14,16 +14,18 @@ function fetchMessageContent(msgs, callback) {
       channels[c.id] = c;
     });
     callback(err, msgs.map(m => Object.assign(m, {
-      channelName: channels[m.channel]
+      channelName: channels[m.channel].name
     })));
   });
 }
 
-model.Message.find({ broadcasted: false }).sort({ votes: -1 }).limit(LIMIT).exec(function(err, msgs){
+console.log('find...');
+model.Message.find({ broadcasted: { $ne: true } }).sort({ votes: -1 }).limit(LIMIT).exec(function(err, msgs){
+  console.log('find=>', err || msgs);
   fetchMessageContent(msgs, function(err, messages){
     messages.forEach(function(msg){
       // syntax: <nb_votes> :balloon: <URL>
-      var url = 'http://' + config.SLACK_NAME + '.slack.com/archive/' + msg.channelName + '/p' + msg.id.replace('.', '');
+      var url = 'http://' + config.SLACK_NAME + '.slack.com/archives/' + msg.channelName + '/p' + msg.id.replace('.', '');
       var digestLine = msg.votes + ' :' + config.REACTION_NAME + ': ' + url;
       // display in the #gen-bot channel
       //config.bot.postMessageToChannel(config.DIGEST_CHANNEL, digestLine);
@@ -36,8 +38,10 @@ model.Message.find({ broadcasted: false }).sort({ votes: -1 }).limit(LIMIT).exec
 
     // mark messages
     const ids = messages.map(m => m.id);
+    /*
     model.Message.update({ id: { $in : ids } }, { $set: { broadcasted: true } }, { multi: true }, (err, res) => {
       err && console.error(err);
     });
+    */
   });
 });
