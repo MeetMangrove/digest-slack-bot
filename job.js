@@ -1,18 +1,21 @@
 var model = require('./model');
 var config = require('./config');
-var request = require('./request');
+var request = require('request');
 
 var LIMIT = 20;
 
 function fetchMessageContent(msgs, callback) {
-  request.get('https://slack.com/api/channels.list?token=' + config.SLACK_TOKEN, (err, res) => {
+  var url = 'https://slack.com/api/channels.list?token=' + config.SLACK_TOKEN;
+  //console.log(url);
+  request.get(url, { json: true }, (err, res, body) => {
+    //console.log(err, typeof body, body);
     var channels = {};
-    res.channels.forEach(c => {
+    body.channels.forEach(c => {
       channels[c.id] = c;
     });
     callback(err, msgs.map(m => Object.assign(m, {
       channelName: channels[m.channel]
-    }));
+    })));
   });
 }
 
@@ -33,6 +36,8 @@ model.Message.find({ broadcasted: false }).sort({ votes: -1 }).limit(LIMIT).exec
 
     // mark messages
     const ids = messages.map(m => m.id);
-    model.Message.update({ id: { $in : ids } }, { $set: { broadcasted: true } });
+    model.Message.update({ id: { $in : ids } }, { $set: { broadcasted: true } }, { multi: true }, (err, res) => {
+      err && console.error(err);
+    });
   });
 });

@@ -1,6 +1,6 @@
 var SlackBot = require('slackbots');
 
-exports = {
+module.exports = {
   REACTION_NAME: 'gem',
   SLACK_NAME: 'nomedu',
   SLACK_TOKEN: process.env.SLACK_TOKEN,
@@ -10,7 +10,7 @@ exports = {
 };
 
 // create a bot
-exports.bot = new SlackBot({
-    token: exports.SLACK_TOKEN, // TODO: Add a bot https://my.slack.com/services/new/bot and put the token
-    name: exports.BOT_NAME
+module.exports.bot = new SlackBot({
+    token: module.exports.SLACK_TOKEN, // TODO: Add a bot https://my.slack.com/services/new/bot and put the token
+    name: module.exports.BOT_NAME
 });
