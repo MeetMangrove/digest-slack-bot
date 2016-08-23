@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MeetMangrove/digest-slack-bot#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "mongoose": "^4.5.9",
     "request": "^2.74.0",
     "slackbots": "^0.5.2"

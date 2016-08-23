@@ -33,6 +33,15 @@ config.bot.on('message', function(data) {
   }
 });
 
-// slack handle: private message to bot from admin
+// dummy web server (required by heroku)
 
-// slack handle: bot invited into a channel
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(process.env.PORT || 3000, function () {
+  console.log('listening on port ' + (process.env.PORT || 3000));
+});
