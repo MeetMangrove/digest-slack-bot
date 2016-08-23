@@ -9,22 +9,30 @@ It is used in the Mangrove Friends community for staying in the loop, and know a
 ## Setup
 
 1. Deploy this project to heroku using the button above (this will clone the repo in a new instance, install the scheduler and mongolab add-ons, and start index.js)
+
 2. When it's done, create the bot in your Slack account's configuration:
+
   - go to https://my.slack.com/services/new/bot
 	- make sure that you selected the right Slack account, from the top-right selector
 	- give your bot a username (e.g. balloon)
 	- keep a copy of the provided token
 	- confirm the creation of this bot
+
 3. Go to the settings page of your heroku instance, click on "Reveal Config Vars", then make sure that:
+
   - the `MONGODB_URI` environment variable is set to your mongodb instance,
 	- `SLACK_TOKEN` contains the token you created at step 2
   - and set the other required environment variables (see below)
+
 4. Setup the scheduled job:
+
   - go back to the "Overview" tab of your heroku instance's settings
 	- click on the "Heroku Scheduler" add-on
 	- add the following job: `node job.js`
 	- select the periodicity and time when you want to receive the digest
+
 5. Restart the heroku instance
+
 6. Invite the bot to the channels you want it to listen to
 
 ## Required environment variables
