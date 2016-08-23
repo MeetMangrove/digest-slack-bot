@@ -11,6 +11,6 @@ module.exports = {
 
 // create a bot
 module.exports.bot = new SlackBot({
-    token: module.exports.SLACK_TOKEN, // TODO: Add a bot https://my.slack.com/services/new/bot and put the token
+    token: module.exports.SLACK_TOKEN,
     name: module.exports.BOT_NAME
 });

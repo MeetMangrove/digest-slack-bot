@@ -1,18 +1,20 @@
 {
   "name": "digest-slack-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "When invited to your Slack channels, this bot identifies messages that were added a specific reaction (e.g. a balloon), and shares a weekly digest of messages with the most of those reactions.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MeetMangrove/digest-slack-bot.git"
   },
-  "author": "",
-  "license": "ISC",
+  "contributors": [
+    "Francesco Occhipinti",
+    "Adrien Joly"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MeetMangrove/digest-slack-bot/issues"
   },
